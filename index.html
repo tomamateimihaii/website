@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AstraChat — AI roleplay on Android</title>
+<meta name="description" content="Roleplay with AI characters that stay in voice. Stream replies in real time, publish your own bots, sync your history with Astra+. Free to start.">
+<meta property="og:title" content="AstraChat — AI roleplay on Android">
+<meta property="og:description" content="79+ character bots, token-by-token streaming, cloud sync with Astra+. Same account on web and app.">
+<meta property="og:image" content="assets/app-discover.jpg">
+<meta name="theme-color" content="#1E1E20">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2l2.2 6.2L20 10l-5.8 1.8L12 18l-2.2-6.2L4 10l5.8-1.8L12 2z" fill="%233B82F6"/></svg>'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top" aria-label="AstraChat home">
+      <svg class="brand-glyph" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.2 6.2L20 10l-5.8 1.8L12 18l-2.2-6.2L4 10l5.8-1.8L12 2z" fill="currentColor"/></svg>
+      <span>AstraChat</span>
+    </a>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#characters">Characters</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#download">Download</a>
+    </div>
+    <div class="nav-actions">
+      <span id="tier-badge" class="tier-badge" hidden></span>
+      <button id="btn-signin" class="nav-textlink" onclick="openAuth()">Sign in</button>
+      <button id="btn-account" class="nav-textlink" onclick="signOut()" hidden>Sign out</button>
+      <button class="pill-white" onclick="openAuth()">Get started</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <span class="ast a1">&#10033;</span>
+  <span class="ast a2">&#10033;</span>
+  <span class="ast a3">&#10033;</span>
+
+  <div class="hero-inner">
+    <h1>Now you can<br><span class="rainbow">roleplay<svg class="underline" viewBox="0 0 300 14" preserveAspectRatio="none" aria-hidden="true"><path d="M4 10 C 80 2, 220 2, 296 9" stroke="url(#ug)" stroke-width="7" fill="none" stroke-linecap="round"/><defs><linearGradient id="ug" x1="0" x2="1"><stop offset="0" stop-color="#34D399"/><stop offset=".5" stop-color="#3B82F6"/><stop offset="1" stop-color="#F472B6"/></linearGradient></defs></svg></span>, create &amp; connect<br>all in one place.</h1>
+    <div class="cta-row">
+      <button class="pill-white pill-lg" onclick="openAuth()">Try it now</button>
+      <a class="textlink-lg" href="#download">Download the app <span aria-hidden="true">&#8599;</span></a>
+    </div>
+  </div>
+
+  <figure class="win-wrap">
+    <div class="win">
+      <div class="win-titlebar">
+        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+        <span class="win-title">AstraChat — Discover</span>
+      </div>
+      <img class="win-shot" src="assets/app-discover.jpg" alt="AstraChat Discover screen showing character cards" width="1200" loading="eager">
+    </div>
+    <figcaption class="win-caption">The Discover feed — every card is a full personality you can talk to.</figcaption>
+  </figure>
+
+  <div class="stats-row container">
+    <div><b id="stat-chars">—</b><span>characters live</span></div>
+    <div><b>45</b><span>free messages / day</span></div>
+    <div><b id="stat-version">—</b><span>current release</span></div>
+    <div><b>Fiction</b><span>always — block anything</span></div>
+  </div>
+</header>
+
+<section class="section" id="features">
+  <div class="container">
+    <h2>Roleplay-grade infrastructure</h2>
+    <p class="lead">The unglamorous parts done properly, so the scenes feel effortless.</p>
+    <div class="grid features">
+
+      <div class="card">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
+        <h3>Streaming that recovers</h3>
+        <p>Replies arrive token by token. If your connection drops mid-scene, the reply resumes from the exact word it stopped on.</p>
+      </div>
+
+      <div class="card">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/></svg></span>
+        <h3>Bots with their full cards</h3>
+        <p>Each public bot carries its author's complete definition — greeting, examples, voice notes. Not a summary of one.</p>
+      </div>
+
+      <div class="card">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.287 1.288L3 12l5.8 1.9a2 2 0 0 1 1.288 1.287L12 21l1.9-5.8a2 2 0 0 1 1.287-1.288L21 12l-5.8-1.9a2 2 0 0 1-1.287-1.287Z"/></svg></span>
+        <h3>Publish in one pass</h3>
+        <p>Name, 500 characters of personality, a greeting, genres, public or private. Your bot is on Discover when you hit save.</p>
+      </div>
+
+      <div class="card">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg></span>
+        <h3>History on your terms</h3>
+        <p>Free accounts store chats locally and server copies expire after a week. Astra+ syncs threads across devices instead.</p>
+      </div>
+
+      <div class="card">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+        <h3>Ratings worth reading</h3>
+        <p>Comment and rate any bot. Word filters and per-minute limits keep the section useful instead of loud.</p>
+      </div>
+
+      <div class="card">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>
+        <h3>One identity</h3>
+        <p>Sign up here or in the app. Same account, same subscription, same saved characters — buy on either side.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" id="characters">
+  <div class="container">
+    <h2>The cast, right now</h2>
+    <p class="lead">Pulled live from Discover. Community imports credited to their creators.</p>
+    <div class="char-row" id="char-row">
+      <span class="char-chip skeleton"></span>
+      <span class="char-chip skeleton"></span>
+      <span class="char-chip skeleton"></span>
+      <span class="char-chip skeleton"></span>
+      <span class="char-chip skeleton"></span>
+      <span class="char-chip skeleton"></span>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="pricing">
+  <div class="container">
+    <h2>Pricing</h2>
+    <p class="lead">Free covers a daily habit. Plus and Pro cover an obsession.</p>
+    <div class="grid pricing">
+      <div class="price-card">
+        <h3>Free</h3>
+        <div class="amount">$0<span>/mo</span></div>
+        <ul>
+          <li>45 messages a day</li>
+          <li>Every public character</li>
+          <li>History stored on-device</li>
+          <li>Create &amp; publish bots</li>
+        </ul>
+        <a class="btn-outline btn-block" href="#download">Download</a>
+      </div>
+      <div class="price-card featured">
+        <div class="badge">Most picked</div>
+        <h3>Plus</h3>
+        <div class="amount">$5<span>/mo</span></div>
+        <ul>
+          <li>175 messages a day</li>
+          <li>Cloud sync across devices</li>
+          <li>Comments and favorites</li>
+          <li>Larger context per scene</li>
+        </ul>
+        <button class="btn-white btn-block" onclick="buyOrLogin('plus')">Choose Plus</button>
+      </div>
+      <div class="price-card">
+        <h3>Pro</h3>
+        <div class="amount">$10<span>/mo</span></div>
+        <ul>
+          <li>600 messages a day</li>
+          <li>Priority models at peak times</li>
+          <li>Longest replies, biggest context</li>
+          <li>Everything in Plus</li>
+        </ul>
+        <button class="btn-outline btn-block" onclick="buyOrLogin('pro')">Choose Pro</button>
+      </div>
+    </div>
+    <p class="fineprint" id="pay-note">Subscriptions run on Stripe, tied to your Astra account. Buy on the web or in the app — it unlocks on both.</p>
+  </div>
+</section>
+
+<section class="section" id="download">
+  <div class="container dl-wrap">
+    <figure class="dl-figure">
+      <img src="assets/app-chat.jpg" alt="AstraChat conversation view" width="880" loading="lazy">
+    </figure>
+    <div class="dl-copy">
+      <h2 class="left">Android, direct install</h2>
+      <p class="lead left">One sideload. After that, updates arrive through the app itself.</p>
+      <ol class="dl-steps">
+        <li>Download the latest APK below</li>
+        <li>Allow installs from this source when Android asks</li>
+        <li>Create an account and pick a character</li>
+      </ol>
+      <div class="cta-row left">
+        <a id="dl-main" class="pill-white pill-lg" href="https://github.com/tomamateimihaii/Uipate/releases/latest">Download latest APK</a>
+      </div>
+      <p class="version-note" id="version-note"></p>
+      <p class="version-note">Requires Android 8.0 or newer. Roughly 155&nbsp;MB installed.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="faq">
+  <div class="container narrow">
+    <h2>Details people ask about</h2>
+    <details><summary>Are the characters self-aware or storing my messages?</summary><p>No. Every reply is generated fiction from language models. On the free plan, server copies of your messages are deleted within seven days — the copy on your device is the one that lasts. Astra+ stores them so sync works between your devices.</p></details>
+    <details><summary>What counts against the daily message limit?</summary><p>One sent message equals one credit, regardless of reply length. The counter resets at midnight UTC, and unused credits do not roll over.</p></details>
+    <details><summary>Can I import or edit characters?</summary><p>You can create bots with a name, greeting, genres, and up to 500 characters of personality instructions, then choose public or private. Editing and deleting stay available to the creator permanently.</p></details>
+    <details><summary>How does billing work if I subscribe here?</summary><p>Checkout runs on Stripe and attaches the subscription to your Astra account. The app picks it up on the next message — no reinstall, no re-login. Cancel from the billing portal whenever; access runs until the period ends.</p></details>
+    <details><summary>Where did the character library come from?</summary><p>A mix of studio originals and community favourites published with attribution to their original creators on Character Tavern.</p></details>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="brand">
+      <svg class="brand-glyph" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.2 6.2L20 10l-5.8 1.8L12 18l-2.2-6.2L4 10l5.8-1.8L12 2z" fill="currentColor"/></svg>
+      AstraChat
+    </div>
+    <div class="foot-links">
+      <a href="#" onclick="openLegal('terms');return false;">Terms</a>
+      <a href="#" onclick="openLegal('privacy');return false;">Privacy</a>
+      <a href="https://github.com/tomamateimihaii/Uipate" target="_blank" rel="noopener">Releases</a>
+    </div>
+    <small>© 2026 AstraChat. All characters are fictional.</small>
+  </div>
+</footer>
+
+<!-- AUTH MODAL -->
+<div class="modal-backdrop" id="auth-modal" hidden>
+  <div class="modal">
+    <button class="modal-x" onclick="closeAuth()" aria-label="Close">&#10005;</button>
+    <svg class="brand-glyph center-glyph" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.2 6.2L20 10l-5.8 1.8L12 18l-2.2-6.2L4 10l5.8-1.8L12 2z" fill="currentColor"/></svg>
+    <h3 id="auth-title">Create your account</h3>
+    <p class="sub-sm" id="auth-sub">Same login as the app — one account everywhere.</p>
+    <div id="auth-name-wrap" class="field">
+      <label>Display name</label>
+      <input id="in-name" placeholder="How should we call you?" autocomplete="nickname">
+    </div>
+    <div id="auth-user-wrap" class="field">
+      <label>Username</label>
+      <input id="in-user" placeholder="unique handle (a-z, 0-9, _)" autocomplete="username">
+    </div>
+    <div class="field">
+      <label>Email</label>
+      <input id="in-email" type="email" placeholder="you@example.com" autocomplete="email">
+    </div>
+    <div class="field">
+      <label>Password</label>
+      <input id="in-pass" type="password" placeholder="6+ characters" autocomplete="current-password">
+    </div>
+    <div id="auth-error" class="err" hidden></div>
+    <button id="auth-go" class="btn-white btn-block" onclick="submitAuth()">Create account</button>
+    <button class="linklike" id="auth-switch" onclick="toggleMode()">Already have an account? Sign in</button>
+    <p class="fineprint">By continuing you agree to our Terms and Privacy Policy.</p>
+  </div>
+</div>
+
+<!-- LEGAL MODAL -->
+<div class="modal-backdrop" id="legal-modal" hidden>
+  <div class="modal wide-modal">
+    <button class="modal-x" onclick="closeLegal()" aria-label="Close">&#10005;</button>
+    <h3 id="legal-title">Terms</h3>
+    <div class="legal-body" id="legal-body"></div>
+  </div>
+</div>
+
+<div id="toast" class="toast" hidden></div>
+
+<script src="app.js"></script>
+</body>
+</html>
