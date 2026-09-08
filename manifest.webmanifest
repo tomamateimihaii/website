@@ -2,7 +2,7 @@
   "name": "AstraChat",
   "short_name": "AstraChat",
   "description": "Roleplay with AI characters — 79+ personalities, real-time streaming, cloud sync.",
-  "start_url": "./",
+  "start_url": "app/",
   "scope": "./",
   "display": "standalone",
   "background_color": "#1E1E20",
