@@ -47370,20 +47370,20 @@ return A.j(p.kS(n,m),$async$yL)
 case 4:case 1:return A.q(q,r)}})
 return A.r($async$yL,r)},
 kS(a,b){return this.apd(a,b)},
-apd(a,b){var s=0,r=A.t(t.H),q=1,p=[],o=this,n,m,l,k,j,i,h,g,f
-var $async$kS=A.u(function(c,d){if(c===1){p.push(d)
+apd(a,b){var s=0,r=A.t(t.H),q=1,p=[],o=this,n,m,l,k,j,i,h,g,f,e,d,c
+var $async$kS=A.u(function(a0,a1){if(a0===1){p.push(a1)
 s=q}for(;;)switch(s){case 0:o.at=!1
 o.as=-1
 o.CW=0
 o.x=null
 o.r=B.dZ
 o.Q=a.a
-l=a.d
-o.w=l
-o.ay=l.length
+j=a.d
+o.w=j
+o.ay=j.length
 o.aqT()
 o.X()
-l=t.z,k=o.b
+j=t.z,i=o.b
 case 2:if(!!o.at){s=3
 break}++o.CW
 q=5
@@ -47395,37 +47395,39 @@ q=1
 s=7
 break
 case 5:q=4
-f=p.pop()
-i=A.a6(f)
-s=i instanceof A.wJ?9:11
+c=p.pop()
+g=A.a6(c)
+s=g instanceof A.wJ?9:11
 break
-case 9:n=i
+case 9:n=g
 if(n.b==="resume_expired")o.as=-1
-if(n.r!=null||n.f!=null){i=o.y
-h=n.r
-if(h==null)h=i.b
-g=n.f
-if(g==null)g=i.d
-o.y=new A.my(i.a,h,i.c,g)
-m=n.f
-i=!1
-if(m!=null)if(m>Date.now()){i=k.b
-i=i==null?null:A.hB(i.a.h(0,"recharge_reminders"))
-i=i!==!1}if(i)$.aG6().zi(new A.ek(A.Az(m,0,!1),0,!1))}s=o.at?12:13
+if(n.r!=null||n.f!=null){f=n.r
+m=f==null?o.y.b:f
+l=m>=1e6
+g=l?"admin":o.y.a
+e=l?999999999:o.y.c
+if(l)d=null
+else{d=n.f
+if(d==null)d=o.y.d}o.y=new A.my(g,m,e,d)
+k=n.f
+g=!1
+if(k!=null)if(k>Date.now()){g=i.b
+g=g==null?null:A.hB(g.a.h(0,"recharge_reminders"))
+g=g!==!1}if(g)$.aG6().zi(new A.ek(A.Az(k,0,!1),0,!1))}s=o.at?12:13
 break
 case 12:s=14
 return A.j(o.vz(a),$async$kS)
 case 14:s=3
 break
-case 13:if(o.CW<=3)if(!n.d){i=n.a
-i=(i==null?0:i)>=500}else i=!0
-else i=!1
-s=i?15:16
+case 13:if(o.CW<=3)if(!n.d){g=n.a
+g=(g==null?0:g)>=500}else g=!0
+else g=!1
+s=g?15:16
 break
 case 15:o.r=B.oC
 o.X()
 s=17
-return A.j(A.vf(new A.aH(1000*(600*o.CW)),l),$async$kS)
+return A.j(A.vf(new A.aH(1000*(600*o.CW)),j),$async$kS)
 case 17:s=2
 break
 case 16:s=18
@@ -47434,23 +47436,23 @@ case 18:s=3
 break
 s=10
 break
-case 11:i=o.CW
-s=i>=3?19:20
+case 11:g=o.CW
+s=g>=3?19:20
 break
 case 19:s=21
 return A.j(o.ve(a,"Connection lost. Check your internet and try again."),$async$kS)
 case 21:s=3
 break
 case 20:s=22
-return A.j(A.vf(new A.aH(1000*(700*i)),l),$async$kS)
+return A.j(A.vf(new A.aH(1000*(700*g)),j),$async$kS)
 case 22:case 10:s=7
 break
 case 4:s=1
 break
 case 7:s=2
 break
-case 3:l=o.ax
-if(l!=null)l.aS()
+case 3:j=o.ax
+if(j!=null)j.aS()
 o.r=B.oB
 o.Q=null
 o.X()
@@ -47459,87 +47461,89 @@ return A.q(null,r)
 case 1:return A.p(p.at(-1),r)}})
 return A.r($async$kS,r)},
 kR(a,b){return this.ani(a,b)},
-ani(b2,b3){var s=0,r=A.t(t.H),q,p=2,o=[],n=[],m=this,l,k,j,i,h,g,f,e,d,c,b,a,a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,b0,b1
-var $async$kR=A.u(function(b4,b5){if(b4===1){o.push(b5)
-s=p}for(;;)switch(s){case 0:a5=m.as
-a6=a5>=0
-a7=m.z
-a7.toString
-a5=a6?a5:null
+ani(b5,b6){var s=0,r=A.t(t.H),q,p=2,o=[],n=[],m=this,l,k,j,i,h,g,f,e,d,c,b,a,a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,b0,b1,b2,b3,b4
+var $async$kR=A.u(function(b7,b8){if(b7===1){o.push(b8)
+s=p}for(;;)switch(s){case 0:a8=m.as
+a9=a8>=0
+b0=m.z
+b0.toString
+a8=a9?a8:null
 s=3
-return A.j(m.a.EY(m.c.a,b2.a,a7,a5,a6,b3),$async$kR)
-case 3:l=b5
+return A.j(m.a.EY(m.c.a,b5.a,b0,a8,a9,b6),$async$kR)
+case 3:l=b8
 s=l.b!==200?4:5
 break
 case 4:k=A.w(t.N,t.z)
 p=7
-b0=t.P
-b1=B.G
+b3=t.P
+b4=B.G
 s=10
 return A.j(B.a1.awk(l.w),$async$kR)
-case 10:k=b0.a(b1.dT(b5,null))
+case 10:k=b3.a(b4.dT(b8,null))
 p=2
 s=9
 break
 case 7:p=6
-a8=o.pop()
+b1=o.pop()
 s=9
 break
 case 6:s=2
 break
-case 9:a5=l.b
-a7=J.bP(k,"code")
-a7=J.bj(a7==null?"":a7)
-a=J.bP(k,"message")
-throw A.h(A.anh(a7,null,null,!1,J.bj(a==null?"The story stalled \u2014 please retry.":a),l.b>=500,a5))
+case 9:a8=l.b
+b0=J.bP(k,"code")
+b0=J.bj(b0==null?"":b0)
+a1=J.bP(k,"message")
+throw A.h(A.anh(b0,null,null,!1,J.bj(a1==null?"The story stalled \u2014 please retry.":a1),l.b>=500,a8))
 case 5:m.r=B.e_
 m.X()
 j=new A.an4(new A.bV(""))
 i=!1
 h=!1
 p=12
-a5=l.w
-a5=new A.yt(A.n_(B.d3.GF(a5),"stream",t.K))
+a8=l.w
+a8=new A.yt(A.n_(B.d3.GF(a8),"stream",t.K))
 p=15
 case 18:s=20
-return A.j(a5.u(),$async$kR)
-case 20:if(!b5){s=19
-break}g=a5.gM()
-for(a7=j.axf(g),a=a7.length,a0=0;a0<a7.length;a7.length===a||(0,A.E)(a7),++a0){f=a7[a0]
-switch(f.a){case"meta":a1=f.b.h(0,"message_id")
-e=a1==null?null:J.bj(a1)
-if(e!=null&&e.length!==0)b2.r=e
+return A.j(a8.u(),$async$kR)
+case 20:if(!b8){s=19
+break}g=a8.gM()
+for(b0=j.axf(g),a1=b0.length,a2=0;a2<b0.length;b0.length===a1||(0,A.E)(b0),++a2){f=b0[a2]
+switch(f.a){case"meta":a3=f.b.h(0,"message_id")
+e=a3==null?null:J.bj(a3)
+if(e!=null&&e.length!==0)b5.r=e
 break
-case"token":a1=A.ec(f.b.h(0,"seq"))
-a2=a1==null?null:B.d.cn(a1)
-d=a2==null?m.as+1:a2
-a1=f.b.h(0,"delta")
-c=J.bj(a1==null?"":a1)
+case"token":a3=A.ec(f.b.h(0,"seq"))
+a4=a3==null?null:B.d.cn(a3)
+d=a4==null?m.as+1:a4
+a3=f.b.h(0,"delta")
+c=J.bj(a3==null?"":a3)
 if(J.c5(c)===0)break
 m.as=d
 i=!0
-b2.d=B.c.Y(b2.d,c)
-b2.w=d
-b2.e=B.iM
+b5.d=B.c.Y(b5.d,c)
+b5.w=d
+b5.e=B.iM
 m.X()
 break
-case"done":a1=m.y
-a3=A.ec(f.b.h(0,"energy_remaining"))
-a3=a3==null?null:B.d.cn(a3)
-if(a3==null)a3=m.y.b
-m.y=new A.my(a1.a,a3,m.y.c,null)
+case"done":a3=A.ec(f.b.h(0,"energy_remaining"))
+a5=a3==null?null:B.d.cn(a3)
+b=a5==null?m.y.b:a5
+a=b>=1e6
+a3=a?"admin":m.y.a
+a6=a?999999999:m.y.c
+m.y=new A.my(a3,b,a6,null)
 h=!0
 break
-case"error":a7=f.b.h(0,"code")
-a7=J.bj(a7==null?"stream_error":a7)
-a=f.b.h(0,"message")
-a=J.bj(a==null?"Generation failed":a)
-a1=i
-a3=A.ec(f.b.h(0,"cooldown_until_ms"))
-a3=a3==null?null:B.d.cn(a3)
-a4=A.ec(f.b.h(0,"energy_remaining"))
-a7=A.anh(a7,a3,a4==null?null:B.d.cn(a4),a1,a,!0,null)
-throw A.h(a7)}}if(h||m.at){s=19
+case"error":b0=f.b.h(0,"code")
+b0=J.bj(b0==null?"stream_error":b0)
+a1=f.b.h(0,"message")
+a1=J.bj(a1==null?"Generation failed":a1)
+a3=i
+a6=A.ec(f.b.h(0,"cooldown_until_ms"))
+a6=a6==null?null:B.d.cn(a6)
+a7=A.ec(f.b.h(0,"energy_remaining"))
+b0=A.anh(b0,a6,a7==null?null:B.d.cn(a7),a3,a1,!0,null)
+throw A.h(b0)}}if(h||m.at){s=19
 break}s=18
 break
 case 19:n.push(17)
@@ -47548,7 +47552,7 @@ break
 case 15:n=[12]
 case 16:p=12
 s=21
-return A.j(a5.aS(),$async$kR)
+return A.j(a8.aS(),$async$kR)
 case 21:s=n.pop()
 break
 case 17:s=!h&&!m.at?22:23
@@ -47556,27 +47560,27 @@ break
 case 22:s=i?24:25
 break
 case 24:s=26
-return A.j(m.rh(b2),$async$kR)
+return A.j(m.rh(b5),$async$kR)
 case 26:s=1
 break
-case 25:a5=A.anh("closed",null,null,!1,"The reply was cut off \u2014 retrying usually fixes it.",!0,null)
-throw A.h(a5)
+case 25:a8=A.anh("closed",null,null,!1,"The reply was cut off \u2014 retrying usually fixes it.",!0,null)
+throw A.h(a8)
 case 23:s=m.at&&!h?27:28
 break
 case 27:s=29
-return A.j(m.vz(b2),$async$kR)
+return A.j(m.vz(b5),$async$kR)
 case 29:s=1
 break
 case 28:s=30
-return A.j(m.rh(b2),$async$kR)
+return A.j(m.rh(b5),$async$kR)
 case 30:p=2
 s=14
 break
 case 12:p=11
-a9=o.pop()
-if(A.a6(a9) instanceof A.wJ)throw a9
-else{a5=A.anh("network",null,null,i,"Connection interrupted.",!0,null)
-throw A.h(a5)}s=14
+b2=o.pop()
+if(A.a6(b2) instanceof A.wJ)throw b2
+else{a8=A.anh("network",null,null,i,"Connection interrupted.",!0,null)
+throw A.h(a8)}s=14
 break
 case 11:s=2
 break
@@ -48979,8 +48983,9 @@ else{n=k.rx
 if(n==null)n=k.k3}n=A.aoN(-0.65,A.e5(B.qh,n,l,21))}i=A.b([r,B.d0,A.a3z(A.jl(l,l,n,l,l,o,l,l,l),l,B.P,new A.bq(p,l,l,l,l,l,B.bC),B.kY,l,50,l,l,50)],i)
 if(q){r=m.a.f
 q=j.y
+q=q.a==="admin"||q.c>=1e6||q.b>=1e6?"\u221e":""+q.b+"/"+q.c
 p=k.rx
-i.push(A.em(l,new A.b6(B.IX,A.aq(""+q.b+"/"+q.c,l,l,l,l,A.ct(l,l,p==null?k.k3:p,l,l,l,l,l,l,l,l,11.5,l,l,B.aq,l,l,!0,l,l,l,l,l,l,l,l),l,l),l),B.I,!1,l,l,l,l,l,l,l,l,l,l,l,l,l,l,r,l,l,l,l,l,l))}s.push(new A.b6(B.Ik,A.c0(i,B.e2,B.o,B.q,0),l))
+i.push(A.em(l,new A.b6(B.IX,A.aq(q,l,l,l,l,A.ct(l,l,p==null?k.k3:p,l,l,l,l,l,l,l,l,11.5,l,l,B.aq,l,l,!0,l,l,l,l,l,l,l,l),l,l),l),B.I,!1,l,l,l,l,l,l,l,l,l,l,l,l,l,l,r,l,l,l,l,l,l))}s.push(new A.b6(B.Ik,A.c0(i,B.e2,B.o,B.q,0),l))
 return A.bY(s,B.ca,B.o,B.q)}}
 A.asW.prototype={
 $0(){return this.a.R(new A.asV())},
