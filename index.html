@@ -10,6 +10,10 @@
 <meta property="og:image" content="assets/app-discover.jpg">
 <meta name="theme-color" content="#1E1E20">
 <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2l2.2 6.2L20 10l-5.8 1.8L12 18l-2.2-6.2L4 10l5.8-1.8L12 2z" fill="%233B82F6"/></svg>'>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="AstraChat">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -48,8 +52,10 @@
     <h1>Now you can<br><span class="rainbow">roleplay<svg class="underline" viewBox="0 0 300 14" preserveAspectRatio="none" aria-hidden="true"><path d="M4 10 C 80 2, 220 2, 296 9" stroke="url(#ug)" stroke-width="7" fill="none" stroke-linecap="round"/><defs><linearGradient id="ug" x1="0" x2="1"><stop offset="0" stop-color="#34D399"/><stop offset=".5" stop-color="#3B82F6"/><stop offset="1" stop-color="#F472B6"/></linearGradient></defs></svg></span>, create &amp; connect<br>all in one place.</h1>
     <div class="cta-row">
       <button class="pill-white pill-lg" onclick="openAuth()">Try it now</button>
+      <a class="pill-white pill-lg" href="app/" style="background:#1E1E20;color:#fff;border:1px solid #2E2E33">Open Web App</a>
       <a class="textlink-lg" href="#download">Download the app <span aria-hidden="true">&#8599;</span></a>
     </div>
+    <p style="margin-top:18px;color:#9B9BA3;font-size:13px">iPhone user? <a href="app/" style="color:#fff;text-decoration:underline">Open the app in your browser</a> — Add to Home Screen to install. No App Store needed.</p>
   </div>
 
   <figure class="win-wrap">
@@ -265,6 +271,11 @@
 
 <div id="toast" class="toast" hidden></div>
 
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('sw.js'));
+}
+</script>
 <script src="app.js"></script>
 </body>
 </html>
