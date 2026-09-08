@@ -48817,7 +48817,7 @@ p=A.c0(A.b([A.bG(n,A.c0(A.b([A.e5(B.qj,n,n,15),B.n3,A.aq("Reconnecting\u2026",n,
 if(!(l.x!=null&&!J.aKl(l.f,new A.aqU()))){s=l.y
 r=s.d
 if(r!=null){s=s.a
-s=!(s==="plus"||s==="pro")&&r>Date.now()}else s=!1
+s=!(s==="plus"||s==="pro"||s==="admin")&&r>Date.now()}else s=!1
 if(s){s=l.y.d
 s.toString
 o=A.e2(0,s-Date.now(),0)
