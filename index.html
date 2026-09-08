@@ -269,6 +269,12 @@
   </div>
 </div>
 
+<div id="install-banner" class="install-banner" hidden>
+  <div class="install-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.2 6.2L20 10l-5.8 1.8L12 18l-2.2-6.2L4 10l5.8-1.8L12 2z" fill="currentColor"/></svg></div>
+  <div class="install-text"><b>Install AstraChat</b><span>Add to your home screen for full-screen app</span></div>
+  <button class="pill-white pill-sm" id="install-btn" onclick="doInstall()">Install</button>
+  <button class="install-close" onclick="dismissInstall()" aria-label="Dismiss">✕</button>
+</div>
 <div id="toast" class="toast" hidden></div>
 
 <script>

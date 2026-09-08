@@ -267,6 +267,56 @@ const LEGAL = {
   },
 };
 
+/* ---------- install prompt ---------- */
+let deferredPrompt = null;
+const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  if (!localStorage.getItem('astra_install_dismissed') && !isStandalone) {
+    $('install-banner').hidden = false;
+  }
+});
+
+// iOS has no beforeinstallprompt — show banner with instructions instead
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    if (isIOS && !isStandalone && !localStorage.getItem('astra_install_dismissed') && !$('install-banner')) return;
+    if (isIOS && !isStandalone && !localStorage.getItem('astra_install_dismissed')) {
+      $('install-banner').hidden = false;
+      const btn = $('install-btn');
+      btn.textContent = 'How to install';
+      btn.onclick = () => {
+        toast('Tap Share → Add to Home Screen', 4000);
+      };
+    }
+  }, 1800);
+});
+
+function doInstall() {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(() => {
+      $('install-banner').hidden = true;
+      deferredPrompt = null;
+    });
+  } else if (isIOS) {
+    toast('Tap Share → Add to Home Screen', 4000);
+  } else {
+    toast('Use your browser menu → Install app');
+  }
+}
+function dismissInstall() {
+  $('install-banner').hidden = true;
+  localStorage.setItem('astra_install_dismissed', '1');
+}
+window.addEventListener('appinstalled', () => {
+  $('install-banner').hidden = true;
+  toast('AstraChat installed — find it on your home screen');
+});
+
 function openLegal(kind) {
   const doc = LEGAL[kind];
   if (!doc) return;
