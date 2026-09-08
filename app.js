@@ -239,7 +239,7 @@ async function refreshTierBadge(token) {
     if (!res.ok) return;
     const j = await res.json();
     const badge = $('tier-badge');
-    badge.textContent = j.tier === 'pro' ? 'Pro' : j.tier === 'plus' ? 'Plus' : 'Free plan';
+    badge.textContent = j.tier === 'admin' ? 'Admin' : j.tier === 'pro' ? 'Pro' : j.tier === 'plus' ? 'Plus' : 'Free plan';
     badge.style.background = j.tier === 'free' ? '#2C2C31' : '#fff';
     badge.hidden = false;
   } catch (_) {}
